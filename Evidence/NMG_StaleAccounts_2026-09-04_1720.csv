@@ -1,0 +1,15 @@
+﻿"Name","SamAccountName","Department","Title","LastLogonDate","Enabled","Description"
+"TEST DO NOT USE","test.user","IT","Test Account","11/3/2022 5:16:55 PM","True","DO NOT USE"
+"svc_legacyfax","svc_legacyfax","Service Accounts","Service Account","4/12/2023 5:16:56 PM","True","Fax server, decommissioned"
+"Harold Grady","hgrady","IT","Systems Analyst","9/9/2023 5:16:54 PM","True",
+"svc_scanner","svc_scanner","Service Accounts","Service Account","3/27/2024 5:16:56 PM","True","Created by vendor, purpose unknown"
+"Marcus Webb 2","mwebb2","Operations","Registered Nurse","12/22/2024 5:16:55 PM","True","Duplicate account"
+"Roland Pace","rpace","Operations","Facilities Technician","6/29/2025 5:16:55 PM","True",
+"TEMP Imaging","temp.imaging","Operations","Shared Temp Account","9/28/2025 5:16:55 PM","True","Shared account"
+"Owen Radcliffe","oradcliffe","Operations","Contract Radiology Tech","11/5/2025 5:16:54 PM","True","Contractor"
+"Vaughn Sterling","vsterling","Operations","Lab Technician","11/18/2025 5:16:55 PM","True",
+"Denise Whitlock","dwhitlock","Operations","Scheduler","12/23/2025 5:16:55 PM","True",
+"Kathy Ferreira","kferreira","Operations","Registered Nurse","2/1/2026 5:16:54 PM","True",
+"Camille Ashford","cashford","Operations","Medical Assistant","2/18/2026 5:16:55 PM","True",
+"Imani Okoro","iokoro","Operations","Pharmacy Technician","3/11/2026 5:16:55 PM","True",
+"Jennifer Voss","jvoss","Finance","Billing Specialist","3/19/2026 5:16:54 PM","True",
