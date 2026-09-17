@@ -1,0 +1,1564 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260915164242
+Username: NMG\Administrator
+RunAs User: NMG\Administrator
+Configuration Name: 
+Machine: WIN-OG6F4D524RH (Microsoft Windows NT 10.0.26212.0)
+Host Application: C:\WINDOWS\system32\WindowsPowerShell\v1.0\PowerShell_ISE.exe
+Process ID: 2208
+PSVersion: 5.1.26212.5000
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26212.5000
+BuildVersion: 10.0.26212.5000
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+  Rows read : 40
+
+  Rows in   : 40
+  Cleaned   : 35
+  Dropped   : 7
+    no username              2
+    duplicate of row 6       2
+    duplicate of row 4       2
+    not a username           1
+PS>TerminatingError(Get-ADUser): "Cannot find an object with identity: 'jhalloway' under: 'DC=NMG,DC=com'."
+
+
+Row      : 41
+Username : svc_backup
+Name     : Backup Service
+LastSeen : 9/3/2026 5:16:56 PM
+Verdict  : SERVICE ACCOUNT
+
+
+
+PS C:\Scripts> $checked | Sort-Object Row | Format-Table -AutoSize
+>> CommandInvocation(Out-Null): "Out-Null"
+PS C:\Scripts> cd C:\Scripts
+. .\Invoke-BulkValidation.ps1 -InputFile "C:\Reports\Separations\NMG_Separations_Q2Q3.csv"
+  Rows read : 40
+
+  Rows in   : 40
+  Cleaned   : 35
+  Dropped   : 5
+    no username              2
+    not a username           1
+    duplicate of row 6       1
+    duplicate of row 4       1
+PS C:\Scripts> TerminatingError(Get-ADUser): "Cannot find an object with identity: 'jhalloway' under: 'DC=NMG,DC=com'."
+PS C:\Scripts> $checked | Sort-Object Row | Format-Table -AutoSize
+
+Row Username    Name                LastSeen              Verdict
+--- --------    ----                --------              -------
+  2 dkessler    Diane Kessler       5/16/2026 5:16:52 PM  ALREADY DISABLED
+  3 tnash       Trevor Nash         7/24/2026 5:16:52 PM  ALREADY DISABLED
+  4 hgrady      Harold Grady        9/9/2023 5:16:54 PM   ALREADY DISABLED
+  5 rpace       Roland Pace         6/29/2025 5:16:55 PM  ALREADY DISABLED
+  6 kferreira   Kathy Ferreira      2/1/2026 5:16:54 PM   ALREADY DISABLED
+  7 oradcliffe  Owen Radcliffe      11/5/2025 5:16:54 PM  ALREADY DISABLED
+  8 ehoffman    Erin Hoffman        7/19/2025 5:16:52 PM  ALREADY DISABLED
+  9 sfoster     Sean Foster         11/13/2025 5:16:52 PM ALREADY DISABLED
+ 10 mjohnson    Marcus Johnson      12/28/2025 5:16:56 PM ALREADY DISABLED
+ 11 dalvarez    Denise Alvarez      2/5/2026 4:17:39 PM   READY
+ 12 pnakamura   Peter Nakamura      11/14/2025 4:17:40 PM READY
+ 13 gokonkwo    Grace Okonkwo       3/20/2026 4:17:40 PM  READY
+ 15 awhitlock   Aaron Whitlock      4/18/2026 4:17:40 PM  READY
+ 16 bferreiro   Bianca Ferreiro     4/2/2026 4:17:40 PM   READY
+ 17 jhalloway                                             NOT IN DIRECTORY
+ 21 tvance      Theresa Vance       5/1/2026 4:17:40 PM   READY
+ 22 dmbeki      Douglas Mbeki       4/6/2026 4:17:40 PM   READY
+ 24 apetrova    Alina Petrova       5/7/2026 4:17:41 PM   READY
+ 25 wcho        Wendell Cho         2/19/2026 4:17:41 PM  READY
+ 26 rquaye      Rosalind Quaye      3/24/2026 4:17:41 PM  READY
+ 27 mdelacroix  Marcus Delacroix    4/15/2026 4:17:41 PM  READY
+ 28 isorokin    Ivan Sorokin        5/22/2026 4:17:41 PM  READY
+ 29 ppatel      Priya Patel         8/31/2026 5:16:51 PM  STILL EMPLOYED
+ 30 svc_scanner Scanner Service     3/27/2024 5:16:56 PM  SERVICE ACCOUNT
+ 31 lansari     Lucy Ansari         5/26/2026 4:17:41 PM  READY
+ 32 bfeld       Bruno Feld          5/15/2026 4:17:42 PM  READY
+ 33 yadeyemi    Yusuf Adeyemi       1/23/2026 4:17:42 PM  READY
+ 34 test.user   Test Account        11/3/2022 5:16:55 PM  READY
+ 35 moyelaran   Marguerite Oyelaran 4/23/2026 4:17:42 PM  READY
+ 36 cpetrie     Callum Petrie       3/28/2026 4:17:42 PM  READY
+ 37 hyoshida    Hana Yoshida        5/10/2026 4:17:42 PM  READY
+ 38 ebergstrom  Elias Bergstrom     3/7/2026 4:17:42 PM   READY
+ 39 smarchetti  Sylvia Marchetti    4/11/2026 4:17:42 PM  READY
+ 40 nosei       Nathaniel Osei      4/28/2026 4:17:43 PM  READY
+ 41 svc_backup  Backup Service      9/3/2026 5:16:56 PM   SERVICE ACCOUNT
+
+
+PS C:\Scripts> $checked | Group-Object Verdict |
+  Select-Object Name, Count |
+  Sort-Object Count -Descending
+
+
+Name             Count
+----             -----
+READY               22
+ALREADY DISABLED     9
+SERVICE ACCOUNT      2
+NOT IN DIRECTORY     1
+STILL EMPLOYED       1
+
+
+PS C:\Scripts> $checked | Where-Object { $_.Row -eq 29 } | Format-List
+
+
+
+Row      : 29
+Username : ppatel
+Name     : Priya Patel
+LastSeen : 8/31/2026 5:16:51 PM
+Verdict  : STILL EMPLOYED
+
+
+
+PS C:\Scripts> $checked | Where-Object { $_.Row -eq 17 } | Format-List
+
+
+
+Row      : 17
+Username : jhalloway
+Name     :
+LastSeen :
+Verdict  : NOT IN DIRECTORY
+
+
+
+PS C:\Scripts> Import-Csv "$OutputPath\Approved.csv" |
+  Group-Object Verdict | Select-Object Name, Count
+
+
+Name  Count
+----  -----
+READY    22
+
+
+PS C:\Scripts> .\Invoke-BulkValidation.ps1 `
+    -InputFile "C:\Reports\Separations\NMG_Separations_Q2Q3.csv"
+
+  Rows read : 40
+
+  Rows in   : 40
+  Cleaned   : 35
+  Dropped   : 5
+    no username              2
+    not a username           1
+    duplicate of row 6       1
+    duplicate of row 4       1
+PS C:\Scripts> TerminatingError(Get-ADUser): "Cannot find an object with identity: 'jhalloway' under: 'DC=NMG,DC=com'."
+PS C:\Scripts> Select-String -Path ".\Invoke-BulkValidation.ps1" -Pattern "Disable-"
+Select-String -Path ".\Invoke-BulkValidation.ps1" -Pattern "Remove-"
+Select-String -Path ".\Invoke-BulkValidation.ps1" -Pattern "Set-AD"
+Select-String -Path ".\Invoke-BulkValidation.ps1" -Pattern "Move-"
+
+PS C:\Scripts> notepad C:\Reports\Separations\Validation-Report.txt
+PS C:\Scripts> cd C:\nmg-identity-automation
+git pull
+git status
+
+Already up to date.
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	Logs/Invoke-BulkValidation_2026-09-15_1642.log
+	Logs/Invoke-BulkValidation_2026-09-15_1653.log
+	Logs/Invoke-BulkValidation_2026-09-15_1714.log
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\nmg-identity-automation> Copy-Item "C:\Scripts\Invoke-BulkValidation.ps1" -Destination ".\Scripts\"
+
+Copy-Item "C:\Reports\Separations\Separations_dropped.csv"  -Destination ".\Evidence\"
+Copy-Item "C:\Reports\Separations\Validation-Report.txt"    -Destination ".\Evidence\"
+Copy-Item "C:\Reports\Separations\Approved.csv"             -Destination ".\Evidence\"
+
+PS C:\nmg-identity-automation> Get-ChildItem ".\Scripts", ".\Evidence", ".\Logs" |
+  Select-Object Directory, Name, LastWriteTime
+
+
+Directory                           Name                                          LastWriteTime
+---------                           ----                                          -------------
+C:\nmg-identity-automation\Scripts  .gitkeep                                      9/4/2026 6:31:43 PM
+C:\nmg-identity-automation\Scripts  Find-StaleAccounts.ps1                        9/4/2026 5:14:56 PM
+C:\nmg-identity-automation\Scripts  Get-NMGOffboardingStatus.ps1                  9/8/2026 5:58:12 PM
+C:\nmg-identity-automation\Scripts  Invoke-BulkValidation.ps1                     9/15/2026 4:51:51 PM
+C:\nmg-identity-automation\Scripts  Offboard-NMGUser.ps1                          9/9/2026 1:32:07 PM
+C:\nmg-identity-automation\Evidence .gitkeep                                      9/4/2026 6:31:43 PM
+C:\nmg-identity-automation\Evidence Approved.csv                                  9/15/2026 5:14:04 PM
+C:\nmg-identity-automation\Evidence hgrady_account_2026-09-07_1325.csv            9/7/2026 1:25:55 PM
+C:\nmg-identity-automation\Evidence hgrady_groups_2026-09-07_1325.csv             9/7/2026 1:25:55 PM
+C:\nmg-identity-automation\Evidence kferreira_account_2026-09-07_1210.csv         9/7/2026 12:10:00 PM
+C:\nmg-identity-automation\Evidence kferreira_account_2026-09-07_1222.csv         9/7/2026 12:22:02 PM
+C:\nmg-identity-automation\Evidence kferreira_final_state.txt                     9/7/2026 12:38:45 PM
+C:\nmg-identity-automation\Evidence kferreira_groups_2026-09-07_1210.csv          9/7/2026 12:10:00 PM
+C:\nmg-identity-automation\Evidence kferreira_groups_2026-09-07_1222.csv          9/7/2026 12:22:02 PM
+C:\nmg-identity-automation\Evidence NMG_Separations_Q2Q3.csv                      9/11/2026 4:17:43 PM
+C:\nmg-identity-automation\Evidence NMG_StaleAccounts_2026-09-04_1720.csv         9/4/2026 5:20:42 PM
+C:\nmg-identity-automation\Evidence NMG_StaleAccounts_2026-09-04_1720_SUMMARY.txt 9/4/2026 5:20:42 PM
+C:\nmg-identity-automation\Evidence oradcliffe_account_2026-09-08_1742.csv        9/8/2026 5:42:06 PM
+C:\nmg-identity-automation\Evidence oradcliffe_groups_2026-09-08_1742.csv         9/8/2026 5:42:06 PM
+C:\nmg-identity-automation\Evidence rpace_account_2026-09-08_1601.csv             9/8/2026 4:01:01 PM
+C:\nmg-identity-automation\Evidence rpace_groups_2026-09-08_1601.csv              9/8/2026 4:01:01 PM
+C:\nmg-identity-automation\Evidence Separations_cleaned.csv                       9/11/2026 4:43:31 PM
+C:\nmg-identity-automation\Evidence Separations_dropped.csv                       9/15/2026 5:14:03 PM
+C:\nmg-identity-automation\Evidence Validation-Report.txt                         9/15/2026 5:14:04 PM
+C:\nmg-identity-automation\Logs     .gitkeep                                      9/4/2026 6:31:43 PM
+C:\nmg-identity-automation\Logs     Disable-NMGUser_2026-09-07_1315.log           9/7/2026 1:15:59 PM
+C:\nmg-identity-automation\Logs     Disable-NMGUser_2026-09-07_1318.log           9/7/2026 1:18:57 PM
+C:\nmg-identity-automation\Logs     Disable-NMGUser_2026-09-07_1320.log           9/7/2026 1:20:42 PM
+C:\nmg-identity-automation\Logs     Disable-NMGUser_2026-09-07_1325.log           9/7/2026 1:25:55 PM
+C:\nmg-identity-automation\Logs     Disable-NMGUser_2026-09-08_1553.log           9/8/2026 3:53:32 PM
+C:\nmg-identity-automation\Logs     Disable-NMGUser_2026-09-08_1554.log           9/8/2026 3:54:58 PM
+C:\nmg-identity-automation\Logs     Disable-NMGUser_2026-09-08_1555.log           9/8/2026 3:55:24 PM
+C:\nmg-identity-automation\Logs     Disable-NMGUser_2026-09-08_1556.log           9/8/2026 3:56:18 PM
+C:\nmg-identity-automation\Logs     Disable-NMGUser_2026-09-08_1601.log           9/8/2026 4:01:01 PM
+C:\nmg-identity-automation\Logs     Disable-NMGUser_2026-09-08_1736.log           9/8/2026 5:36:50 PM
+C:\nmg-identity-automation\Logs     Disable-NMGUser_2026-09-08_1737.log           9/8/2026 5:37:40 PM
+C:\nmg-identity-automation\Logs     Disable-NMGUser_2026-09-08_1742.log           9/8/2026 5:42:07 PM
+C:\nmg-identity-automation\Logs     Disable-NMGUser_2026-09-08_1749.log           9/8/2026 5:49:35 PM
+C:\nmg-identity-automation\Logs     Disable-NMGUser_2026-09-09_1418.log           9/9/2026 2:18:40 PM
+C:\nmg-identity-automation\Logs     Invoke-BulkValidation_2026-09-15_1642.log     9/15/2026 4:42:42 PM
+C:\nmg-identity-automation\Logs     Invoke-BulkValidation_2026-09-15_1653.log     9/15/2026 4:53:11 PM
+C:\nmg-identity-automation\Logs     Invoke-BulkValidation_2026-09-15_1714.log     9/15/2026 5:14:04 PM
+
+
+PS C:\nmg-identity-automation> .\Scripts\Get-NMGOffboardingStatus.ps1
+
+  NORTHSTAR OFFBOARDING STATUS
+  Tuesday 15 September 2026, 17:17
+
+  Offboarded and quarantined ....... 5
+  Offboarded, not yet moved ........ 25
+  Still waiting .................... 30
+
+  NOT YET MOVED
+    Guest        Guest
+    krbtgt       krbtgt
+    mjohnson     Marcus Johnson
+    tnash        Trevor Nash
+    dkessler     Diane Kessler
+    sfoster      Sam Foster
+    ehoffman     Eric Hoffman
+    bknowles     Bernadette Knowles
+    rvasquez     Rosa Vasquez
+    pnorris      Peter Norris
+    jpark        Jae Park
+    awhitfield   Angela Whitfield
+    dmurray      Dennis Murray
+    kobrien      Katie OBrien
+    lchen        Linda Chen
+    gmorales     Gabriel Morales
+    hthompson    Hannah Thompson
+    tbaker       Tonya Baker
+    cwarren      Curtis Warren
+    jrivera      Joel Rivera
+    nsullivan    Nina Sullivan
+    avaldez      Ana Valdez
+    bschaefer    Bill Schaefer
+    mfitzgerald  Molly Fitzgerald
+    rkline       Ruth Kline
+
+  STILL WAITING
+    test.user    TEST DO NOT USE      IT
+    svc_legacyfax svc_legacyfax        Service Accounts
+    svc_scanner  svc_scanner          Service Accounts
+    mwebb2       Marcus Webb 2        Operations
+    temp.imaging TEMP Imaging         Operations
+    pnakamura    Peter Nakamura       Finance
+    vsterling    Vaughn Sterling      Operations
+    yadeyemi     Yusuf Adeyemi        IT
+    dalvarez     Denise Alvarez       Finance
+    cashford     Camille Ashford      Operations
+    wcho         Wendell Cho          IT
+    ebergstrom   Elias Bergstrom      IT
+    iokoro       Imani Okoro          Operations
+    jvoss        Jennifer Voss        Finance
+    gokonkwo     Grace Okonkwo        HR
+    rquaye       Rosalind Quaye       HR
+    cpetrie      Callum Petrie        Operations
+    bferreiro    Bianca Ferreiro      Finance
+    dmbeki       Douglas Mbeki        Operations
+    smarchetti   Sylvia Marchetti     HR
+    mdelacroix   Marcus Delacroix     Operations
+    awhitlock    Aaron Whitlock       Operations
+    moyelaran    Marguerite Oyelaran  HR
+    nosei        Nathaniel Osei       Operations
+    tvance       Theresa Vance        HR
+    apetrova     Alina Petrova        Finance
+    hyoshida     Hana Yoshida         Finance
+    bfeld        Bruno Feld           Finance
+    isorokin     Ivan Sorokin         Finance
+    lansari      Lucy Ansari          Operations
+
+PS C:\nmg-identity-automation> notepad Documentation\Offboarding-Runbook.md
+PS C:\nmg-identity-automation> git add .
+git : warning: in the working copy of 'Scripts/Invoke-BulkValidation.ps1', LF will be replaced by CRLF the next time 
+Git touches it
+At line:1 char:1
++ git add .
++ ~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (warning: in the... Git touches it:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+git : warning: in the working copy of 'Scripts/Invoke-BulkValidation.ps1', LF will be replaced by CRLF the next time Git touches it
+At line:1 char:1
++ git add .
++ ~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (warning: in the... Git touches it:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+PS C:\nmg-identity-automation> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   Documentation/Offboarding-Runbook.md
+	new file:   Evidence/Approved.csv
+	new file:   Evidence/Separations_dropped.csv
+	new file:   Evidence/Validation-Report.txt
+	new file:   Logs/Invoke-BulkValidation_2026-09-15_1642.log
+	new file:   Logs/Invoke-BulkValidation_2026-09-15_1653.log
+	new file:   Logs/Invoke-BulkValidation_2026-09-15_1714.log
+	new file:   Scripts/Invoke-BulkValidation.ps1
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   Logs/Invoke-BulkValidation_2026-09-15_1642.log
+
+PS C:\nmg-identity-automation> git commit -m "Add Invoke-BulkValidation. Validation only, no accounts modified."
+[main 3c4f389] Add Invoke-BulkValidation. Validation only, no accounts modified.
+ 8 files changed, 453 insertions(+)
+ create mode 100644 Evidence/Approved.csv
+ create mode 100644 Evidence/Separations_dropped.csv
+ create mode 100644 Evidence/Validation-Report.txt
+ create mode 100644 Logs/Invoke-BulkValidation_2026-09-15_1642.log
+ create mode 100644 Logs/Invoke-BulkValidation_2026-09-15_1653.log
+ create mode 100644 Logs/Invoke-BulkValidation_2026-09-15_1714.log
+ create mode 100644 Scripts/Invoke-BulkValidation.ps1
+PS C:\nmg-identity-automation> git push
+git : To https://github.com/EvanHYearwood/nmg-identity-automation.git
+At line:1 char:1
++ git push
++ ~~~~~~~~
+    + CategoryInfo          : NotSpecified: (To https://gith...-automation.git:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+git : To https://github.com/EvanHYearwood/nmg-identity-automation.git
+At line:1 char:1
++ git push
++ ~~~~~~~~
+    + CategoryInfo          : NotSpecified: (To https://gith...-automation.git:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+   fba7d91..3c4f389  main -> main
+   fba7d91..3c4f389  main -> main
+PS C:\nmg-identity-automation> cd C:\nmg-identity-automation
+
+PS C:\nmg-identity-automation> Import-Csv ".\Evidence\Approved.csv" |
+  Group-Object Verdict | Select-Object Name, Count
+
+Name  Count
+----  -----
+READY    22
+
+
+PS C:\nmg-identity-automation> @"
+From: Rachel Ito, Privacy Officer
+Date: 13 Aug 2026, 16:40
+Re: Bulk offboarding review
+
+Row 29: NO. Priya is at her desk. Remove from the list.
+Service accounts: hold, I will find the owners.
+Already disabled: skip, do not overwrite.
+
+Everything else: approved. 22 accounts.
+
+R.
+"@ | Out-File ".\Evidence\Rachel-approval-13Aug.txt" -Encoding UTF8
+
+Get-Content ".\Evidence\Rachel-approval-13Aug.txt"
+From: Rachel Ito, Privacy Officer
+Date: 13 Aug 2026, 16:40
+Re: Bulk offboarding review
+
+Row 29: NO. Priya is at her desk. Remove from the list.
+Service accounts: hold, I will find the owners.
+Already disabled: skip, do not overwrite.
+
+Everything else: approved. 22 accounts.
+
+R.
+PS C:\nmg-identity-automation> #=============================================================
+#  THROWAWAY ACCOUNTS FOR DAY 14
+#  TotalThreat 30-Day Challenge
+#
+#  Creates 11 test accounts in a Test Accounts OU, and the
+#  approved list that points at them.
+#
+#  These exist so you can break your script on purpose without
+#  going anywhere near Sandra's approved list. You will delete
+#  them at the end of the day.
+#
+#  Safe to run as many times as you like.
+#=============================================================
+
+Import-Module ActiveDirectory
+
+$Domain = Get-ADDomain
+if ($Domain.DNSRoot -ne "NMG.com") {
+    Write-Host ""
+    Write-Host "  STOP. This is not the NMG.com lab domain." -ForegroundColor Red
+    Write-Host ""
+    return
+}
+
+$Root   = $Domain.DistinguishedName
+$OuName = "Test Accounts"
+$OuPath = "OU=$OuName,$Root"
+$Pw     = ConvertTo-SecureString "Northstar2025!" -AsPlainText -Force
+
+Write-Host ""
+Write-Host "  THROWAWAY ACCOUNTS FOR DAY 14" -ForegroundColor Cyan
+Write-Host "  -----------------------------"
+Write-Host ""
+
+#--- The OU they live in -------------------------------------
+# Separate from everything else, so you can see at a glance
+# that today never touched a real account.
+
+if (-not (Get-ADOrganizationalUnit -Filter "Name -eq '$OuName'" -ErrorAction SilentlyContinue)) {
+    New-ADOrganizationalUnit -Name $OuName -Path $Root `
+        -ProtectedFromAccidentalDeletion $false
+    Write-Host "        created OU : $OuName" -ForegroundColor Green
+}
+
+#--- A group for them to belong to ---------------------------
+# The rollback has to put memberships back, so they need some.
+
+foreach ($g in @("Test-Users", "Test-Shared")) {
+    if (-not (Get-ADGroup -Filter "Name -eq '$g'" -ErrorAction SilentlyContinue)) {
+        New-ADGroup -Name $g -GroupScope Global -GroupCategory Security `
+            -Path $OuPath -Description "Day 14 throwaway group"
+        Write-Host "        created group : $g" -ForegroundColor Green
+    }
+}
+
+#--- The 11 accounts -----------------------------------------
+
+$made = 0; $already = 0
+
+foreach ($i in 1..11) {
+
+    $sam  = "testuser{0:D2}" -f $i
+    $name = "Test User {0:D2}" -f $i
+
+    if (Get-ADUser -Filter "SamAccountName -eq '$sam'" -ErrorAction SilentlyContinue) {
+        $already++
+        continue
+    }
+
+    New-ADUser `
+        -Name                  $name `
+        -DisplayName           $name `
+        -SamAccountName        $sam `
+        -UserPrincipalName     "$sam@NMG.com" `
+        -Path                  $OuPath `
+        -Department            "Test Accounts" `
+        -Title                 "Throwaway" `
+        -AccountPassword       $Pw `
+        -Enabled               $true `
+        -ChangePasswordAtLogon $false
+
+    Add-ADGroupMember -Identity "Test-Users"  -Members $sam
+    Add-ADGroupMember -Identity "Test-Shared" -Members $sam
+
+    Write-Host "        created : $sam" -ForegroundColor Green
+    $made++
+}
+
+#--- The approved list that points at them -------------------
+# Same shape as Sandra's Approved.csv, so your bulk script
+# does not need to know the difference.
+
+$Folder = "C:\Reports\Separations"
+if (-not (Test-Path $Folder)) {
+    New-Item -Path $Folder -ItemType Directory -Force | Out-Null
+}
+
+$File = "$Folder\test-accounts.csv"
+
+1..11 | ForEach-Object {
+    [PSCustomObject]@{
+        Row      = $_ + 1
+        Username = "testuser{0:D2}" -f $_
+        Name     = "Test User {0:D2}" -f $_
+        LastSeen = (Get-Date).AddDays(-200)
+        Verdict  = "READY"
+    }
+} | Export-Csv $File -NoTypeInformation
+
+Write-Host ""
+Write-Host "        Created  : $made"
+Write-Host "        Already there : $already"
+Write-Host "        List     : $File"
+Write-Host ""
+Write-Host "  11 throwaway accounts, each in 2 groups." -ForegroundColor DarkGray
+Write-Host "  Break anything you like. You delete them at the end" -ForegroundColor DarkGray
+Write-Host "  of the day, and Sandra's list is never touched." -ForegroundColor DarkGray
+Write-Host ""
+
+  THROWAWAY ACCOUNTS FOR DAY 14
+  -----------------------------
+
+        created OU : Test Accounts
+        created group : Test-Users
+        created group : Test-Shared
+        created : testuser01
+        created : testuser02
+        created : testuser03
+        created : testuser04
+        created : testuser05
+        created : testuser06
+        created : testuser07
+        created : testuser08
+        created : testuser09
+        created : testuser10
+        created : testuser11
+
+        Created  : 11
+        Already there : 0
+        List     : C:\Reports\Separations\test-accounts.csv
+
+  11 throwaway accounts, each in 2 groups.
+  Break anything you like. You delete them at the end
+  of the day, and Sandra's list is never touched.
+
+PS C:\nmg-identity-automation> .\Invoke-BulkOffboarding.ps1 -ApprovedList ".\test-accounts.csv"
+.\Invoke-BulkOffboarding.ps1 : The term '.\Invoke-BulkOffboarding.ps1' is not recognized as the name of a cmdlet, 
+function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the 
+path is correct and try again.
+At line:1 char:1
++ .\Invoke-BulkOffboarding.ps1 -ApprovedList ".\test-accounts.csv"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (.\Invoke-BulkOffboarding.ps1:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+.\Invoke-BulkOffboarding.ps1 : The term '.\Invoke-BulkOffboarding.ps1' is not recognized as the name of a cmdlet, function, script
+file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ .\Invoke-BulkOffboarding.ps1 -ApprovedList ".\test-accounts.csv"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (.\Invoke-BulkOffboarding.ps1:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\nmg-identity-automation> cd C:\Scripts
+PS C:\Scripts> .\Invoke-BulkOffboarding.ps1 -ApprovedList ".\test-accounts.csv"
+PS C:\Scripts> TerminatingError(Import-Csv): "Could not find file 'C:\Scripts\test-accounts.csv'."
+Import-Csv : Could not find file 'C:\Scripts\test-accounts.csv'.
+At C:\Scripts\Invoke-BulkOffboarding.ps1:14 char:13
++ $approved = Import-Csv $ApprovedList
++             ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Import-Csv], FileNotFoundException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.ImportCsvCommand
+Import-Csv : Could not find file 'C:\Scripts\test-accounts.csv'.
+At C:\Scripts\Invoke-BulkOffboarding.ps1:14 char:13
++ $approved = Import-Csv $ApprovedList
++             ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Import-Csv], FileNotFoundException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.ImportCsvCommand
+
+
+  BULK OFFBOARDING
+  Accounts : 0
+  Ticket   : NMG-0215
+
+PS C:\Scripts> TerminatingError(Remove-ADGroupMember): "Cannot validate argument on parameter 'Members'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again."
+Remove-ADGroupMember : Cannot validate argument on parameter 'Members'. The argument is null or empty. Provide an 
+argument that is not null or empty, and then try the command again.
+At C:\Scripts\Invoke-BulkOffboarding.ps1:139 char:14
++     -Members $Username -Confirm:$false -ErrorAction Stop
++              ~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Remove-ADGroupMember], ParameterBindingValidationException
+    + FullyQualifiedErrorId : 
+ParameterArgumentValidationError,Microsoft.ActiveDirectory.Management.Commands.RemoveADGroupMember
+Remove-ADGroupMember : Cannot validate argument on parameter 'Members'. The argument is null or empty. Provide an argument that is
+not null or empty, and then try the command again.
+At C:\Scripts\Invoke-BulkOffboarding.ps1:139 char:14
++     -Members $Username -Confirm:$false -ErrorAction Stop
++              ~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Remove-ADGroupMember], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,Microsoft.ActiveDirectory.Management.Commands.RemoveADGroupMember
+
+PS C:\Scripts> .\Invoke-BulkOffboarding.ps1 -ApprovedList "C:\Reports\Separations\test-accounts.csv"
+
+  BULK OFFBOARDING
+  Accounts : 11
+  Ticket   : NMG-0215
+
+C:\Reports\Offboarding\testuser01_groups_2026-09-15_1807.csv
+  ok  testuser01
+C:\Reports\Offboarding\testuser02_groups_2026-09-15_1807.csv
+  ok  testuser02
+C:\Reports\Offboarding\testuser03_groups_2026-09-15_1807.csv
+  ok  testuser03
+C:\Reports\Offboarding\testuser04_groups_2026-09-15_1807.csv
+  ok  testuser04
+C:\Reports\Offboarding\testuser05_groups_2026-09-15_1807.csv
+  ok  testuser05
+C:\Reports\Offboarding\testuser06_groups_2026-09-15_1807.csv
+  ok  testuser06
+C:\Reports\Offboarding\testuser07_groups_2026-09-15_1807.csv
+  ok  testuser07
+C:\Reports\Offboarding\testuser08_groups_2026-09-15_1807.csv
+  ok  testuser08
+C:\Reports\Offboarding\testuser09_groups_2026-09-15_1807.csv
+  ok  testuser09
+C:\Reports\Offboarding\testuser10_groups_2026-09-15_1807.csv
+  ok  testuser10
+C:\Reports\Offboarding\testuser11_groups_2026-09-15_1807.csv
+  ok  testuser11
+PS C:\Scripts> TerminatingError(Remove-ADGroupMember): "Cannot validate argument on parameter 'Members'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again."
+Remove-ADGroupMember : Cannot validate argument on parameter 'Members'. The argument is null or empty. Provide an 
+argument that is not null or empty, and then try the command again.
+At C:\Scripts\Invoke-BulkOffboarding.ps1:139 char:14
++     -Members $Username -Confirm:$false -ErrorAction Stop
++              ~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Remove-ADGroupMember], ParameterBindingValidationException
+    + FullyQualifiedErrorId : 
+ParameterArgumentValidationError,Microsoft.ActiveDirectory.Management.Commands.RemoveADGroupMember
+Remove-ADGroupMember : Cannot validate argument on parameter 'Members'. The argument is null or empty. Provide an argument that is
+not null or empty, and then try the command again.
+At C:\Scripts\Invoke-BulkOffboarding.ps1:139 char:14
++     -Members $Username -Confirm:$false -ErrorAction Stop
++              ~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Remove-ADGroupMember], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,Microsoft.ActiveDirectory.Management.Commands.RemoveADGroupMember
+
+PS C:\Scripts> Get-ADUser -Identity "testuser11" -Properties MemberOf, Description |
+  Select-Object Name, Enabled, Description,
+                @{n="Groups";e={$_.MemberOf.Count}},
+                DistinguishedName | Format-List
+
+
+
+Name              : Test User 11
+Enabled           : False
+Description       : Offboarded 2026-09-15 | Ticket NMG-0215
+Groups            : 0
+DistinguishedName : CN=Test User 11,OU=Disabled Users,DC=NMG,DC=com
+
+
+
+PS C:\Scripts> #=============================================================
+#  DAY 14 RESET
+#
+#  Puts the lab back to where it was before Day 14 started.
+#  Run this, then start Day 14 again from the top tomorrow.
+#
+#  It removes:
+#    1. The 11 throwaway accounts and their OU and groups
+#    2. Today's evidence files, logs and result files
+#    3. The test-accounts.csv list
+#    4. The Day 14 script from C:\Scripts
+#
+#  It does NOT touch:
+#    - Sandra's 22 approved accounts
+#    - Anything in the repository except what today created
+#    - Approved.csv, Validation-Report.txt or the dropped file
+#    - Rachel's approval file, if you made one
+#
+#  Everything it finds is listed before anything is deleted,
+#  and it asks once before doing it.
+#=============================================================
+
+Import-Module ActiveDirectory
+
+$Domain = Get-ADDomain
+if ($Domain.DNSRoot -ne "NMG.com") {
+    Write-Host ""
+    Write-Host "  STOP. This is not the NMG.com lab domain." -ForegroundColor Red
+    Write-Host ""
+    return
+}
+
+$Root  = $Domain.DistinguishedName
+$Today = Get-Date -Format "yyyy-MM-dd"
+
+Write-Host ""
+Write-Host "  DAY 14 RESET" -ForegroundColor Cyan
+Write-Host "  ------------"
+Write-Host ""
+
+#--- 1. WHAT ACCOUNTS EXIST FROM TODAY -----------------------
+
+Write-Host "  [1/4] Throwaway accounts" -ForegroundColor Yellow
+
+$testUsers = Get-ADUser -Filter "SamAccountName -like 'testuser*'" `
+    -Properties MemberOf, Description, Enabled
+
+if ($testUsers) {
+    $testUsers | ForEach-Object {
+        $where = if ($_.DistinguishedName -like "*Disabled Users*") { "quarantine" }
+                 elseif ($_.DistinguishedName -like "*Test Accounts*") { "test OU" }
+                 else { "elsewhere" }
+        Write-Host ("        {0,-12} enabled={1,-5} groups={2,-2} in {3}" -f
+            $_.SamAccountName, $_.Enabled, $_.MemberOf.Count, $where)
+    }
+} else {
+    Write-Host "        none found" -ForegroundColor DarkGray
+}
+
+$testOU     = Get-ADOrganizationalUnit -Filter "Name -eq 'Test Accounts'" -ErrorAction SilentlyContinue
+$testGroups = Get-ADGroup -Filter "Name -like 'Test-*'" -ErrorAction SilentlyContinue
+
+if ($testOU)     { Write-Host "        OU     : Test Accounts" }
+if ($testGroups) { $testGroups | ForEach-Object { Write-Host "        group  : $($_.Name)" } }
+
+#--- 2. SANDRA'S 22 ARE UNTOUCHED ----------------------------
+
+Write-Host ""
+Write-Host "  [2/4] Sandra's approved accounts" -ForegroundColor Yellow
+
+$approvedFile = "C:\Reports\Separations\Approved.csv"
+$touched = @()
+
+if (Test-Path $approvedFile) {
+    Import-Csv $approvedFile | ForEach-Object {
+        $u = Get-ADUser -Identity $_.Username -Properties Description -ErrorAction SilentlyContinue
+        if ($u -and ($u.Enabled -eq $false -or $u.Description -like "*NMG-0215*")) {
+            $touched += $u.SamAccountName
+        }
+    }
+    if ($touched) {
+        Write-Host "        WARNING: these approved accounts were modified today:" -ForegroundColor Red
+        $touched | ForEach-Object { Write-Host "          $_" -ForegroundColor Red }
+        Write-Host "        This script will not touch them. Fix by hand." -ForegroundColor Red
+    } else {
+        Write-Host "        all 22 untouched. Good." -ForegroundColor Green
+    }
+} else {
+    Write-Host "        Approved.csv not found, skipping check" -ForegroundColor DarkGray
+}
+
+#--- 3. FILES FROM TODAY -------------------------------------
+
+Write-Host ""
+Write-Host "  [3/4] Files created today" -ForegroundColor Yellow
+
+$files = @()
+$files += Get-ChildItem "C:\Reports\Offboarding\testuser*"           -ErrorAction SilentlyContinue
+$files += Get-ChildItem "C:\Reports\Offboarding\BulkRun_*"           -ErrorAction SilentlyContinue
+$files += Get-ChildItem "C:\Reports\Separations\test-accounts.csv"   -ErrorAction SilentlyContinue
+$files += Get-ChildItem "C:\Scripts\Invoke-BulkOffboarding.ps1"      -ErrorAction SilentlyContinue
+$files += Get-ChildItem "C:\nmg-identity-automation\Logs\Invoke-BulkOffboarding_*" -ErrorAction SilentlyContinue
+$files += Get-ChildItem "C:\nmg-identity-automation\Scripts\Invoke-BulkOffboarding.ps1" -ErrorAction SilentlyContinue
+$files += Get-ChildItem "C:\nmg-identity-automation\Evidence\testuser*" -ErrorAction SilentlyContinue
+$files += Get-ChildItem "C:\nmg-identity-automation\Evidence\BulkRun_*" -ErrorAction SilentlyContinue
+
+if ($files) {
+    $files | ForEach-Object { Write-Host "        $($_.FullName)" }
+} else {
+    Write-Host "        none found" -ForegroundColor DarkGray
+}
+
+#--- 4. CONFIRM, THEN DELETE ---------------------------------
+
+Write-Host ""
+Write-Host "  [4/4] Ready to remove everything listed above." -ForegroundColor Yellow
+Write-Host ""
+$answer = Read-Host "        Type RESET to continue, anything else to stop"
+
+if ($answer -ne "RESET") {
+    Write-Host ""
+    Write-Host "  Nothing changed." -ForegroundColor DarkGray
+    Write-Host ""
+    return
+}
+
+Write-Host ""
+
+# accounts first, then groups, then the OU
+$testUsers | ForEach-Object {
+    Remove-ADUser -Identity $_ -Confirm:$false
+    Write-Host "        removed : $($_.SamAccountName)" -ForegroundColor Green
+}
+$testGroups | ForEach-Object {
+    Remove-ADGroup -Identity $_ -Confirm:$false
+    Write-Host "        removed : $($_.Name)" -ForegroundColor Green
+}
+if ($testOU) {
+    Set-ADOrganizationalUnit -Identity $testOU -ProtectedFromAccidentalDeletion $false
+    Remove-ADOrganizationalUnit -Identity $testOU -Confirm:$false -Recursive
+    Write-Host "        removed : OU Test Accounts" -ForegroundColor Green
+}
+
+# files
+$files | ForEach-Object {
+    Remove-Item $_.FullName -Force
+    Write-Host "        removed : $($_.Name)" -ForegroundColor Green
+}
+
+#--- 5. THE REPOSITORY ---------------------------------------
+
+Write-Host ""
+Write-Host "  Repository state:" -ForegroundColor Yellow
+
+Push-Location "C:\nmg-identity-automation"
+$status = git status --porcelain 2>$null
+if ($status) {
+    Write-Host "        uncommitted changes exist:"
+    $status | ForEach-Object { Write-Host "          $_" }
+    Write-Host ""
+    Write-Host "        If any of these are from Day 14, discard them:" -ForegroundColor DarkGray
+    Write-Host "          git checkout -- <file>     for a modified file" -ForegroundColor DarkGray
+    Write-Host "          Remove-Item <file>         for a new file" -ForegroundColor DarkGray
+} else {
+    Write-Host "        clean. Nothing from today was committed." -ForegroundColor Green
+}
+Pop-Location
+
+Write-Host ""
+Write-Host "  Done. Lab is back to the end of Day 13." -ForegroundColor Cyan
+Write-Host ""
+
+  DAY 14 RESET
+  ------------
+
+  [1/4] Throwaway accounts
+        testuser01   enabled=False groups=0  in quarantine
+        testuser02   enabled=False groups=0  in quarantine
+        testuser03   enabled=False groups=0  in quarantine
+        testuser04   enabled=False groups=0  in quarantine
+        testuser05   enabled=False groups=0  in quarantine
+        testuser06   enabled=False groups=0  in quarantine
+        testuser07   enabled=False groups=0  in quarantine
+        testuser08   enabled=False groups=0  in quarantine
+        testuser09   enabled=False groups=0  in quarantine
+        testuser10   enabled=False groups=0  in quarantine
+        testuser11   enabled=False groups=0  in quarantine
+        OU     : Test Accounts
+        group  : Test-Shared
+        group  : Test-Users
+
+  [2/4] Sandra's approved accounts
+        all 22 untouched. Good.
+
+  [3/4] Files created today
+        C:\Reports\Offboarding\testuser01_groups_2026-09-15_1807.csv
+        C:\Reports\Offboarding\testuser02_groups_2026-09-15_1807.csv
+        C:\Reports\Offboarding\testuser03_groups_2026-09-15_1807.csv
+        C:\Reports\Offboarding\testuser04_groups_2026-09-15_1807.csv
+        C:\Reports\Offboarding\testuser05_groups_2026-09-15_1807.csv
+        C:\Reports\Offboarding\testuser06_groups_2026-09-15_1807.csv
+        C:\Reports\Offboarding\testuser07_groups_2026-09-15_1807.csv
+        C:\Reports\Offboarding\testuser08_groups_2026-09-15_1807.csv
+        C:\Reports\Offboarding\testuser09_groups_2026-09-15_1807.csv
+        C:\Reports\Offboarding\testuser10_groups_2026-09-15_1807.csv
+        C:\Reports\Offboarding\testuser11_groups_2026-09-15_1807.csv
+        C:\Reports\Separations\test-accounts.csv
+        C:\Scripts\Invoke-BulkOffboarding.ps1
+
+  [4/4] Ready to remove everything listed above.
+
+
+        removed : testuser01
+        removed : testuser02
+        removed : testuser03
+        removed : testuser04
+        removed : testuser05
+        removed : testuser06
+        removed : testuser07
+        removed : testuser08
+        removed : testuser09
+        removed : testuser10
+        removed : testuser11
+        removed : Test-Shared
+        removed : Test-Users
+        removed : OU Test Accounts
+        removed : testuser01_groups_2026-09-15_1807.csv
+        removed : testuser02_groups_2026-09-15_1807.csv
+        removed : testuser03_groups_2026-09-15_1807.csv
+        removed : testuser04_groups_2026-09-15_1807.csv
+        removed : testuser05_groups_2026-09-15_1807.csv
+        removed : testuser06_groups_2026-09-15_1807.csv
+        removed : testuser07_groups_2026-09-15_1807.csv
+        removed : testuser08_groups_2026-09-15_1807.csv
+        removed : testuser09_groups_2026-09-15_1807.csv
+        removed : testuser10_groups_2026-09-15_1807.csv
+        removed : testuser11_groups_2026-09-15_1807.csv
+        removed : test-accounts.csv
+        removed : Invoke-BulkOffboarding.ps1
+
+  Repository state:
+        uncommitted changes exist:
+           M Logs/Invoke-BulkValidation_2026-09-15_1642.log
+          ?? Evidence/Rachel-approval-13Aug.txt
+
+        If any of these are from Day 14, discard them:
+          git checkout -- <file>     for a modified file
+          Remove-Item <file>         for a new file
+
+  Done. Lab is back to the end of Day 13.
+
+PS C:\Scripts> cd C:\nmg-identity-automation
+
+Import-Csv ".\Evidence\Approved.csv" |
+  Group-Object Verdict | Select-Object Name, Count
+
+
+Name  Count
+----  -----
+READY    22
+
+
+PS C:\nmg-identity-automation> @"
+From: Rachel Ito, Privacy Officer
+Date: 13 Aug 2026, 16:40
+Re: Bulk offboarding review
+
+Row 29: NO. Priya is at her desk. Remove from the list.
+Service accounts: hold, I will find the owners.
+Already disabled: skip, do not overwrite.
+
+Everything else: approved. 22 accounts.
+
+R.
+"@ | Out-File ".\Evidence\Rachel-approval-13Aug.txt" -Encoding UTF8
+
+Get-Content ".\Evidence\Rachel-approval-13Aug.txt"
+
+From: Rachel Ito, Privacy Officer
+Date: 13 Aug 2026, 16:40
+Re: Bulk offboarding review
+
+Row 29: NO. Priya is at her desk. Remove from the list.
+Service accounts: hold, I will find the owners.
+Already disabled: skip, do not overwrite.
+
+Everything else: approved. 22 accounts.
+
+R.
+PS C:\nmg-identity-automation> #=============================================================
+#  THROWAWAY ACCOUNTS FOR DAY 14
+#  TotalThreat 30-Day Challenge
+#
+#  Creates 11 test accounts in a Test Accounts OU, and the
+#  list that points at them. Run it again at any point to
+#  put them all back to fresh, whatever state they are in.
+#
+#  These exist so you can break your script on purpose without
+#  going anywhere near Sandra's approved list.
+#=============================================================
+
+Import-Module ActiveDirectory
+
+$Domain = Get-ADDomain
+if ($Domain.DNSRoot -ne "NMG.com") {
+    Write-Host ""
+    Write-Host "  STOP. This is not the NMG.com lab domain." -ForegroundColor Red
+    Write-Host ""
+    return
+}
+
+$Root   = $Domain.DistinguishedName
+$OuName = "Test Accounts"
+$OuPath = "OU=$OuName,$Root"
+$Pw     = ConvertTo-SecureString "Northstar2025!" -AsPlainText -Force
+
+Write-Host ""
+Write-Host "  THROWAWAY ACCOUNTS FOR DAY 14" -ForegroundColor Cyan
+Write-Host "  -----------------------------"
+Write-Host ""
+
+#--- Remove any that already exist, wherever they are --------
+# A previous run may have moved them to Disabled Users or left
+# them half-offboarded. Fresh means fresh.
+
+$old = Get-ADUser -Filter "SamAccountName -like 'testuser*'" -ErrorAction SilentlyContinue
+if ($old) {
+    $old | Remove-ADUser -Confirm:$false
+    Write-Host "        reset   : removed $($old.Count) existing test accounts" -ForegroundColor DarkGray
+}
+
+Get-ChildItem "C:\Reports\Offboarding\testuser*" -ErrorAction SilentlyContinue | Remove-Item -Force
+Get-ChildItem "C:\Reports\Offboarding\BulkRun_*"  -ErrorAction SilentlyContinue | Remove-Item -Force
+
+#--- The OU they live in -------------------------------------
+
+if (-not (Get-ADOrganizationalUnit -Filter "Name -eq '$OuName'" -ErrorAction SilentlyContinue)) {
+    New-ADOrganizationalUnit -Name $OuName -Path $Root -ProtectedFromAccidentalDeletion $false
+    Write-Host "        created : OU $OuName" -ForegroundColor Green
+}
+
+#--- Two groups, so the rollback has something to restore ----
+
+foreach ($g in @("Test-Users", "Test-Shared")) {
+    if (-not (Get-ADGroup -Filter "Name -eq '$g'" -ErrorAction SilentlyContinue)) {
+        New-ADGroup -Name $g -GroupScope Global -GroupCategory Security `
+            -Path $OuPath -Description "Day 14 throwaway group"
+        Write-Host "        created : group $g" -ForegroundColor Green
+    }
+}
+
+#--- The 11 accounts -----------------------------------------
+
+foreach ($i in 1..11) {
+    $sam  = "testuser{0:D2}" -f $i
+    $name = "Test User {0:D2}" -f $i
+
+    New-ADUser -Name $name -DisplayName $name -SamAccountName $sam `
+        -UserPrincipalName "$sam@NMG.com" -Path $OuPath `
+        -Department "Test Accounts" -Title "Throwaway" `
+        -AccountPassword $Pw -Enabled $true -ChangePasswordAtLogon $false
+
+    Add-ADGroupMember -Identity "Test-Users"  -Members $sam
+    Add-ADGroupMember -Identity "Test-Shared" -Members $sam
+}
+Write-Host "        created : testuser01 to testuser11, each in 2 groups" -ForegroundColor Green
+
+#--- The list that points at them ----------------------------
+
+$Folder = "C:\Reports\Separations"
+if (-not (Test-Path $Folder)) { New-Item -Path $Folder -ItemType Directory -Force | Out-Null }
+$File = "$Folder\test-accounts.csv"
+
+1..11 | ForEach-Object {
+    [PSCustomObject]@{
+        Row      = $_ + 1
+        Username = "testuser{0:D2}" -f $_
+        Name     = "Test User {0:D2}" -f $_
+        LastSeen = (Get-Date).AddDays(-200)
+        Verdict  = "READY"
+    }
+} | Export-Csv $File -NoTypeInformation
+
+Write-Host "        list    : $File"
+Write-Host ""
+Write-Host "  Fresh. Break anything you like." -ForegroundColor Yellow
+Write-Host ""
+
+  THROWAWAY ACCOUNTS FOR DAY 14
+  -----------------------------
+
+        created : OU Test Accounts
+        created : group Test-Users
+        created : group Test-Shared
+        created : testuser01 to testuser11, each in 2 groups
+        list    : C:\Reports\Separations\test-accounts.csv
+
+  Fresh. Break anything you like.
+
+PS C:\nmg-identity-automation> Import-Csv "C:\Reports\Separations\test-accounts.csv" | Select-Object -First 3
+
+
+Row      : 2
+Username : testuser01
+Name     : Test User 01
+LastSeen : 2/28/2026 4:51:02 PM
+Verdict  : READY
+
+Row      : 3
+Username : testuser02
+Name     : Test User 02
+LastSeen : 2/28/2026 4:51:02 PM
+Verdict  : READY
+
+Row      : 4
+Username : testuser03
+Name     : Test User 03
+LastSeen : 2/28/2026 4:51:02 PM
+Verdict  : READY
+
+
+
+PS C:\nmg-identity-automation> cd C:\Scripts
+
+.\Invoke-BulkOffboarding.ps1 `
+    -ApprovedList "C:\Reports\Separations\test-accounts.csv" `
+    -BreakOn "testuser11"
+
+
+  BULK OFFBOARDING
+  Accounts : 11
+  Ticket   : NMG-0215
+
+C:\Reports\Offboarding\testuser01_groups_2026-09-16_1658.csv
+  ok  testuser01
+C:\Reports\Offboarding\testuser02_groups_2026-09-16_1658.csv
+  ok  testuser02
+C:\Reports\Offboarding\testuser03_groups_2026-09-16_1658.csv
+  ok  testuser03
+C:\Reports\Offboarding\testuser04_groups_2026-09-16_1658.csv
+  ok  testuser04
+C:\Reports\Offboarding\testuser05_groups_2026-09-16_1658.csv
+  ok  testuser05
+C:\Reports\Offboarding\testuser06_groups_2026-09-16_1658.csv
+  ok  testuser06
+C:\Reports\Offboarding\testuser07_groups_2026-09-16_1658.csv
+  ok  testuser07
+C:\Reports\Offboarding\testuser08_groups_2026-09-16_1658.csv
+  ok  testuser08
+C:\Reports\Offboarding\testuser09_groups_2026-09-16_1658.csv
+  ok  testuser09
+C:\Reports\Offboarding\testuser10_groups_2026-09-16_1658.csv
+  ok  testuser10
+C:\Reports\Offboarding\testuser11_groups_2026-09-16_1658.csv
+PS C:\nmg-identity-automation> TerminatingError(): "Cannot find an object with identity: 'EHR-Clinical-RENAMED'"
+>> TerminatingError(): "Cannot find an object with identity: 'EHR-Clinical-RENAMED'"
+>> TerminatingError(): "Cannot find an object with identity: 'EHR-Clinical-RENAMED'"
+Cannot find an object with identity: 'EHR-Clinical-RENAMED'
+At C:\Scripts\Invoke-BulkOffboarding.ps1:60 char:9
++         throw "Cannot find an object with identity: 'EHR-Clinical-REN ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Cannot find an ...inical-RENAMED':String) [], RuntimeException
+    + FullyQualifiedErrorId : Cannot find an object with identity: 'EHR-Clinical-RENAMED'
+
+PS C:\Scripts> Get-ADUser -Identity "testuser11" -Properties MemberOf, Description |
+  Select-Object Name, Enabled, Description,
+                @{n="Groups";e={$_.MemberOf.Count}},
+                DistinguishedName | Format-List
+
+
+
+Name              : Test User 11
+Enabled           : False
+Description       : Offboarded 2026-09-16 | Ticket NMG-0215
+Groups            : 2
+DistinguishedName : CN=Test User 11,OU=Test Accounts,DC=NMG,DC=com
+
+
+
+PS C:\Scripts> #=============================================================
+#  THROWAWAY ACCOUNTS FOR DAY 14
+#  TotalThreat 30-Day Challenge
+#
+#  Creates 11 test accounts in a Test Accounts OU, and the
+#  list that points at them. Run it again at any point to
+#  put them all back to fresh, whatever state they are in.
+#
+#  These exist so you can break your script on purpose without
+#  going anywhere near Sandra's approved list.
+#=============================================================
+
+Import-Module ActiveDirectory
+
+$Domain = Get-ADDomain
+if ($Domain.DNSRoot -ne "NMG.com") {
+    Write-Host ""
+    Write-Host "  STOP. This is not the NMG.com lab domain." -ForegroundColor Red
+    Write-Host ""
+    return
+}
+
+$Root   = $Domain.DistinguishedName
+$OuName = "Test Accounts"
+$OuPath = "OU=$OuName,$Root"
+$Pw     = ConvertTo-SecureString "Northstar2025!" -AsPlainText -Force
+
+Write-Host ""
+Write-Host "  THROWAWAY ACCOUNTS FOR DAY 14" -ForegroundColor Cyan
+Write-Host "  -----------------------------"
+Write-Host ""
+
+#--- Remove any that already exist, wherever they are --------
+# A previous run may have moved them to Disabled Users or left
+# them half-offboarded. Fresh means fresh.
+
+$old = Get-ADUser -Filter "SamAccountName -like 'testuser*'" -ErrorAction SilentlyContinue
+if ($old) {
+    $old | Remove-ADUser -Confirm:$false
+    Write-Host "        reset   : removed $($old.Count) existing test accounts" -ForegroundColor DarkGray
+}
+
+Get-ChildItem "C:\Reports\Offboarding\testuser*" -ErrorAction SilentlyContinue | Remove-Item -Force
+Get-ChildItem "C:\Reports\Offboarding\BulkRun_*"  -ErrorAction SilentlyContinue | Remove-Item -Force
+
+#--- The OU they live in -------------------------------------
+
+if (-not (Get-ADOrganizationalUnit -Filter "Name -eq '$OuName'" -ErrorAction SilentlyContinue)) {
+    New-ADOrganizationalUnit -Name $OuName -Path $Root -ProtectedFromAccidentalDeletion $false
+    Write-Host "        created : OU $OuName" -ForegroundColor Green
+}
+
+#--- Two groups, so the rollback has something to restore ----
+
+foreach ($g in @("Test-Users", "Test-Shared")) {
+    if (-not (Get-ADGroup -Filter "Name -eq '$g'" -ErrorAction SilentlyContinue)) {
+        New-ADGroup -Name $g -GroupScope Global -GroupCategory Security `
+            -Path $OuPath -Description "Day 14 throwaway group"
+        Write-Host "        created : group $g" -ForegroundColor Green
+    }
+}
+
+#--- The 11 accounts -----------------------------------------
+
+foreach ($i in 1..11) {
+    $sam  = "testuser{0:D2}" -f $i
+    $name = "Test User {0:D2}" -f $i
+
+    New-ADUser -Name $name -DisplayName $name -SamAccountName $sam `
+        -UserPrincipalName "$sam@NMG.com" -Path $OuPath `
+        -Department "Test Accounts" -Title "Throwaway" `
+        -AccountPassword $Pw -Enabled $true -ChangePasswordAtLogon $false
+
+    Add-ADGroupMember -Identity "Test-Users"  -Members $sam
+    Add-ADGroupMember -Identity "Test-Shared" -Members $sam
+}
+Write-Host "        created : testuser01 to testuser11, each in 2 groups" -ForegroundColor Green
+
+#--- The list that points at them ----------------------------
+
+$Folder = "C:\Reports\Separations"
+if (-not (Test-Path $Folder)) { New-Item -Path $Folder -ItemType Directory -Force | Out-Null }
+$File = "$Folder\test-accounts.csv"
+
+1..11 | ForEach-Object {
+    [PSCustomObject]@{
+        Row      = $_ + 1
+        Username = "testuser{0:D2}" -f $_
+        Name     = "Test User {0:D2}" -f $_
+        LastSeen = (Get-Date).AddDays(-200)
+        Verdict  = "READY"
+    }
+} | Export-Csv $File -NoTypeInformation
+
+Write-Host "        list    : $File"
+Write-Host ""
+Write-Host "  Fresh. Break anything you like." -ForegroundColor Yellow
+Write-Host ""
+
+  THROWAWAY ACCOUNTS FOR DAY 14
+  -----------------------------
+
+        reset   : removed 11 existing test accounts
+        created : testuser01 to testuser11, each in 2 groups
+        list    : C:\Reports\Separations\test-accounts.csv
+
+  Fresh. Break anything you like.
+
+PS C:\Scripts> .\Invoke-BulkOffboarding.ps1 `
+    -ApprovedList "C:\Reports\Separations\test-accounts.csv" `
+    -BreakOn "testuser11"
+
+  BULK OFFBOARDING
+  Accounts : 11
+  Ticket   : NMG-0215
+
+  ok       testuser01
+  ok       testuser02
+  ok       testuser03
+  ok       testuser04
+  ok       testuser05
+  ok       testuser06
+  ok       testuser07
+  ok       testuser08
+  ok       testuser09
+  ok       testuser10
+PS C:\Scripts> TerminatingError(): "Cannot find an object with identity: 'EHR-Clinical-RENAMED'"
+PS C:\Scripts> TerminatingError(Set-ADUser): "replace"
+>> TerminatingError(Set-ADUser): "replace"
+  STRANDED testuser11  MANUAL REVIEW NEEDED
+PS C:\Scripts> Get-ADUser -Identity "testuser11" -Properties MemberOf, Description |
+  Select-Object Name, Enabled, Description,
+                @{n="Groups";e={$_.MemberOf.Count}},
+                DistinguishedName | Format-List
+
+
+Name              : Test User 11
+Enabled           : True
+Description       : Offboarded 2026-09-16 | Ticket NMG-0215
+Groups            : 2
+DistinguishedName : CN=Test User 11,OU=Test Accounts,DC=NMG,DC=com
+
+
+
+PS C:\Scripts> Import-Csv "C:\Reports\Offboarding\BulkRun_*.csv" | Format-Table -AutoSize
+
+Time     Row Username   Outcome  Step Detail
+----     --- --------   -------  ---- ------
+17:06:20 2   testuser01 COMPLETE 5
+17:06:21 3   testuser02 COMPLETE 5
+17:06:21 4   testuser03 COMPLETE 5
+17:06:22 5   testuser04 COMPLETE 5
+17:06:22 6   testuser05 COMPLETE 5
+17:06:23 7   testuser06 COMPLETE 5
+17:06:23 8   testuser07 COMPLETE 5
+17:06:24 9   testuser08 COMPLETE 5
+17:06:24 10  testuser09 COMPLETE 5
+17:06:25 11  testuser10 COMPLETE 5
+17:06:25 12  testuser11 STRANDED 4    rollback FAILED: replace
+
+
+PS C:\Scripts> #=============================================================
+#  THROWAWAY ACCOUNTS FOR DAY 14
+#  TotalThreat 30-Day Challenge
+#
+#  Creates 11 test accounts in a Test Accounts OU, and the
+#  list that points at them. Run it again at any point to
+#  put them all back to fresh, whatever state they are in.
+#
+#  These exist so you can break your script on purpose without
+#  going anywhere near Sandra's approved list.
+#=============================================================
+
+Import-Module ActiveDirectory
+
+$Domain = Get-ADDomain
+if ($Domain.DNSRoot -ne "NMG.com") {
+    Write-Host ""
+    Write-Host "  STOP. This is not the NMG.com lab domain." -ForegroundColor Red
+    Write-Host ""
+    return
+}
+
+$Root   = $Domain.DistinguishedName
+$OuName = "Test Accounts"
+$OuPath = "OU=$OuName,$Root"
+$Pw     = ConvertTo-SecureString "Northstar2025!" -AsPlainText -Force
+
+Write-Host ""
+Write-Host "  THROWAWAY ACCOUNTS FOR DAY 14" -ForegroundColor Cyan
+Write-Host "  -----------------------------"
+Write-Host ""
+
+#--- Remove any that already exist, wherever they are --------
+# A previous run may have moved them to Disabled Users or left
+# them half-offboarded. Fresh means fresh.
+
+$old = Get-ADUser -Filter "SamAccountName -like 'testuser*'" -ErrorAction SilentlyContinue
+if ($old) {
+    $old | Remove-ADUser -Confirm:$false
+    Write-Host "        reset   : removed $($old.Count) existing test accounts" -ForegroundColor DarkGray
+}
+
+Get-ChildItem "C:\Reports\Offboarding\testuser*" -ErrorAction SilentlyContinue | Remove-Item -Force
+Get-ChildItem "C:\Reports\Offboarding\BulkRun_*"  -ErrorAction SilentlyContinue | Remove-Item -Force
+
+#--- The OU they live in -------------------------------------
+
+if (-not (Get-ADOrganizationalUnit -Filter "Name -eq '$OuName'" -ErrorAction SilentlyContinue)) {
+    New-ADOrganizationalUnit -Name $OuName -Path $Root -ProtectedFromAccidentalDeletion $false
+    Write-Host "        created : OU $OuName" -ForegroundColor Green
+}
+
+#--- Two groups, so the rollback has something to restore ----
+
+foreach ($g in @("Test-Users", "Test-Shared")) {
+    if (-not (Get-ADGroup -Filter "Name -eq '$g'" -ErrorAction SilentlyContinue)) {
+        New-ADGroup -Name $g -GroupScope Global -GroupCategory Security `
+            -Path $OuPath -Description "Day 14 throwaway group"
+        Write-Host "        created : group $g" -ForegroundColor Green
+    }
+}
+
+#--- The 11 accounts -----------------------------------------
+
+foreach ($i in 1..11) {
+    $sam  = "testuser{0:D2}" -f $i
+    $name = "Test User {0:D2}" -f $i
+
+    New-ADUser -Name $name -DisplayName $name -SamAccountName $sam `
+        -UserPrincipalName "$sam@NMG.com" -Path $OuPath `
+        -Department "Test Accounts" -Title "Throwaway" `
+        -AccountPassword $Pw -Enabled $true -ChangePasswordAtLogon $false
+
+    Add-ADGroupMember -Identity "Test-Users"  -Members $sam
+    Add-ADGroupMember -Identity "Test-Shared" -Members $sam
+}
+Write-Host "        created : testuser01 to testuser11, each in 2 groups" -ForegroundColor Green
+
+#--- The list that points at them ----------------------------
+
+$Folder = "C:\Reports\Separations"
+if (-not (Test-Path $Folder)) { New-Item -Path $Folder -ItemType Directory -Force | Out-Null }
+$File = "$Folder\test-accounts.csv"
+
+1..11 | ForEach-Object {
+    [PSCustomObject]@{
+        Row      = $_ + 1
+        Username = "testuser{0:D2}" -f $_
+        Name     = "Test User {0:D2}" -f $_
+        LastSeen = (Get-Date).AddDays(-200)
+        Verdict  = "READY"
+    }
+} | Export-Csv $File -NoTypeInformation
+
+Write-Host "        list    : $File"
+Write-Host ""
+Write-Host "  Fresh. Break anything you like." -ForegroundColor Yellow
+Write-Host ""
+
+  THROWAWAY ACCOUNTS FOR DAY 14
+  -----------------------------
+
+        reset   : removed 11 existing test accounts
+        created : testuser01 to testuser11, each in 2 groups
+        list    : C:\Reports\Separations\test-accounts.csv
+
+  Fresh. Break anything you like.
+
+PS C:\Scripts> .\Invoke-BulkOffboarding.ps1 `
+    -ApprovedList "C:\Reports\Separations\test-accounts.csv" `
+    -BreakOn "testuser*"
+
+
+  BULK OFFBOARDING
+  Accounts : 11
+  Ticket   : NMG-0215
+
+PS C:\Scripts> TerminatingError(): "Cannot find an object with identity: 'EHR-Clinical-RENAMED'"
+PS C:\Scripts> TerminatingError(Set-ADUser): "replace"
+>> TerminatingError(Set-ADUser): "replace"
+  STRANDED testuser01  MANUAL REVIEW NEEDED
+PS C:\Scripts> TerminatingError(): "Cannot find an object with identity: 'EHR-Clinical-RENAMED'"
+PS C:\Scripts> TerminatingError(Set-ADUser): "replace"
+>> TerminatingError(Set-ADUser): "replace"
+  STRANDED testuser02  MANUAL REVIEW NEEDED
+PS C:\Scripts> TerminatingError(): "Cannot find an object with identity: 'EHR-Clinical-RENAMED'"
+PS C:\Scripts> TerminatingError(Set-ADUser): "replace"
+>> TerminatingError(Set-ADUser): "replace"
+  STRANDED testuser03  MANUAL REVIEW NEEDED
+
+  STOPPING: 3 consecutive failures.
+  This looks systemic rather than per-account.
+  8 accounts not attempted.
+
+  Bulk offboarding finished.  Approved: 11
+
+    Completed ......... 0
+    Rolled back ....... 0
+    Stranded .......... 3
+
+    testuser01   row 2    STRANDED at step 4
+                      rollback FAILED: replace
+    testuser02   row 3    STRANDED at step 4
+                      rollback FAILED: replace
+    testuser03   row 4    STRANDED at step 4
+                      rollback FAILED: replace
+
+PS C:\Scripts> Import-Module ActiveDirectory
+$root = (Get-ADDomain).DistinguishedName
+
+Get-ADUser -Filter "SamAccountName -like 'testuser*'" | Remove-ADUser -Confirm:$false
+Get-ADGroup -Filter "Name -like 'Test-*'"            | Remove-ADGroup -Confirm:$false
+
+$ou = Get-ADOrganizationalUnit -Filter "Name -eq 'Test Accounts'"
+if ($ou) {
+    Set-ADOrganizationalUnit $ou -ProtectedFromAccidentalDeletion $false
+    Remove-ADOrganizationalUnit $ou -Confirm:$false
+}
+
+Remove-Item "C:\Reports\Offboarding\testuser*" -Force
+Remove-Item "C:\Reports\Offboarding\BulkRun_*"  -Force
+Remove-Item "C:\Reports\Separations\test-accounts.csv" -Force
+
+# Gone. Nothing today reached a real account.
+
+PS C:\Scripts> cd C:\nmg-identity-automation
+.\Scripts\Get-NMGOffboardingStatus.ps1
+
+
+  NORTHSTAR OFFBOARDING STATUS
+  Wednesday 16 September 2026, 17:19
+
+  Offboarded and quarantined ....... 5
+  Offboarded, not yet moved ........ 25
+  Still waiting .................... 30
+
+  NOT YET MOVED
+    Guest        Guest
+    krbtgt       krbtgt
+    mjohnson     Marcus Johnson
+    tnash        Trevor Nash
+    dkessler     Diane Kessler
+    sfoster      Sam Foster
+    ehoffman     Eric Hoffman
+    bknowles     Bernadette Knowles
+    rvasquez     Rosa Vasquez
+    pnorris      Peter Norris
+    jpark        Jae Park
+    awhitfield   Angela Whitfield
+    dmurray      Dennis Murray
+    kobrien      Katie OBrien
+    lchen        Linda Chen
+    gmorales     Gabriel Morales
+    hthompson    Hannah Thompson
+    tbaker       Tonya Baker
+    cwarren      Curtis Warren
+    jrivera      Joel Rivera
+    nsullivan    Nina Sullivan
+    avaldez      Ana Valdez
+    bschaefer    Bill Schaefer
+    mfitzgerald  Molly Fitzgerald
+    rkline       Ruth Kline
+
+  STILL WAITING
+    test.user    TEST DO NOT USE      IT
+    svc_legacyfax svc_legacyfax        Service Accounts
+    svc_scanner  svc_scanner          Service Accounts
+    mwebb2       Marcus Webb 2        Operations
+    temp.imaging TEMP Imaging         Operations
+    pnakamura    Peter Nakamura       Finance
+    vsterling    Vaughn Sterling      Operations
+    yadeyemi     Yusuf Adeyemi        IT
+    dalvarez     Denise Alvarez       Finance
+    cashford     Camille Ashford      Operations
+    wcho         Wendell Cho          IT
+    ebergstrom   Elias Bergstrom      IT
+    iokoro       Imani Okoro          Operations
+    jvoss        Jennifer Voss        Finance
+    gokonkwo     Grace Okonkwo        HR
+    rquaye       Rosalind Quaye       HR
+    cpetrie      Callum Petrie        Operations
+    bferreiro    Bianca Ferreiro      Finance
+    dmbeki       Douglas Mbeki        Operations
+    smarchetti   Sylvia Marchetti     HR
+    mdelacroix   Marcus Delacroix     Operations
+    awhitlock    Aaron Whitlock       Operations
+    moyelaran    Marguerite Oyelaran  HR
+    nosei        Nathaniel Osei       Operations
+    tvance       Theresa Vance        HR
+    apetrova     Alina Petrova        Finance
+    hyoshida     Hana Yoshida         Finance
+    bfeld        Bruno Feld           Finance
+    isorokin     Ivan Sorokin         Finance
+    lansari      Lucy Ansari          Operations
+
+PS C:\nmg-identity-automation> git pull
+git status
+
+Copy-Item "C:\Scripts\Invoke-BulkOffboarding.ps1" -Destination ".\Scripts\"
+
+Get-ChildItem ".\Scripts" | Select-Object Name, LastWriteTime
+
+Already up to date.
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   Logs/Invoke-BulkValidation_2026-09-15_1642.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	Evidence/Rachel-approval-13Aug.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Name                         LastWriteTime
+----                         -------------
+.gitkeep                     9/4/2026 6:31:43 PM
+Find-StaleAccounts.ps1       9/4/2026 5:14:56 PM
+Get-NMGOffboardingStatus.ps1 9/8/2026 5:58:12 PM
+Invoke-BulkOffboarding.ps1   9/16/2026 5:20:29 PM
+Invoke-BulkValidation.ps1    9/15/2026 4:51:51 PM
+Offboard-NMGUser.ps1         9/9/2026 1:32:07 PM
+
+
+PS C:\nmg-identity-automation> notepad Documentation\Offboarding-Runbook.md
