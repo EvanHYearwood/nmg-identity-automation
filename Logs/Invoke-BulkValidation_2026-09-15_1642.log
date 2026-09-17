@@ -1562,3 +1562,178 @@ Offboard-NMGUser.ps1         9/9/2026 1:32:07 PM
 
 
 PS C:\nmg-identity-automation> notepad Documentation\Offboarding-Runbook.md
+PS C:\nmg-identity-automation> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   Documentation/Offboarding-Runbook.md
+	modified:   Logs/Invoke-BulkValidation_2026-09-15_1642.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	Evidence/Rachel-approval-13Aug.txt
+	Scripts/Invoke-BulkOffboarding.ps1
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\nmg-identity-automation> git add .
+git status
+
+git commit -m "Add Invoke-BulkOffboarding with atomic rollback and per-account logging. Not yet run."
+
+git push
+
+git : warning: in the working copy of 'Logs/Invoke-BulkValidation_2026-09-15_1642.log', LF will be replaced by CRLF the 
+next time Git touches it
+At line:1 char:1
++ git add .
++ ~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (warning: in the... Git touches it:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+git : warning: in the working copy of 'Logs/Invoke-BulkValidation_2026-09-15_1642.log', LF will be replaced by CRLF the next time Git touches it
+At line:1 char:1
++ git add .
++ ~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (warning: in the... Git touches it:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+warning: in the working copy of 'Evidence/Rachel-approval-13Aug.txt', LF will be replaced by CRLF the next time Git 
+touches it
+warning: in the working copy of 'Evidence/Rachel-approval-13Aug.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'Scripts/Invoke-BulkOffboarding.ps1', LF will be replaced by CRLF the next time Git 
+touches it
+warning: in the working copy of 'Scripts/Invoke-BulkOffboarding.ps1', LF will be replaced by CRLF the next time Git touches it
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   Documentation/Offboarding-Runbook.md
+	new file:   Evidence/Rachel-approval-13Aug.txt
+	modified:   Logs/Invoke-BulkValidation_2026-09-15_1642.log
+	new file:   Scripts/Invoke-BulkOffboarding.ps1
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   Logs/Invoke-BulkValidation_2026-09-15_1642.log
+
+[main 434c757] Add Invoke-BulkOffboarding with atomic rollback and per-account logging. Not yet run.
+ 4 files changed, 1804 insertions(+)
+ create mode 100644 Evidence/Rachel-approval-13Aug.txt
+ create mode 100644 Scripts/Invoke-BulkOffboarding.ps1
+git : To https://github.com/EvanHYearwood/nmg-identity-automation.git
+At line:6 char:1
++ git push
++ ~~~~~~~~
+    + CategoryInfo          : NotSpecified: (To https://gith...-automation.git:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+git : To https://github.com/EvanHYearwood/nmg-identity-automation.git
+At line:6 char:1
++ git push
++ ~~~~~~~~
+    + CategoryInfo          : NotSpecified: (To https://gith...-automation.git:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+   3c4f389..434c757  main -> main
+   3c4f389..434c757  main -> main
+PS C:\nmg-identity-automation> cd C:\nmg-identity-automation
+
+PS C:\nmg-identity-automation> (Import-Csv ".\Evidence\Approved.csv").Count
+22
+PS C:\nmg-identity-automation> Get-Content ".\Evidence\Rachel-approval-13Aug.txt"
+From: Rachel Ito, Privacy Officer
+Date: 13 Aug 2026, 16:40
+Re: Bulk offboarding review
+
+Row 29: NO. Priya is at her desk. Remove from the list.
+Service accounts: hold, I will find the owners.
+Already disabled: skip, do not overwrite.
+
+Everything else: approved. 22 accounts.
+
+R.
+PS C:\nmg-identity-automation> Get-ADUser -Filter "SamAccountName -like 'testuser*'"
+PS C:\nmg-identity-automation> Select-String -Path ".\Scripts\Invoke-BulkOffboarding.ps1" -Pattern 'BreakOn    = ""'
+
+
+Scripts\Invoke-BulkOffboarding.ps1:6:    [string]$BreakOn    = ""
+
+
+PS C:\nmg-identity-automation> .\Scripts\Invoke-BulkOffboarding.ps1 `
+    -ApprovedList ".\Evidence\Approved.csv" `
+    -Ticket "NMG-0231" `
+    -WhatIf
+
+>> TerminatingError(Invoke-BulkOffboarding.ps1): "A parameter cannot be found that matches parameter name 'WhatIf'."
+C:\nmg-identity-automation\Scripts\Invoke-BulkOffboarding.ps1 : A parameter cannot be found that matches parameter name 
+'WhatIf'.
+At line:4 char:5
++     -WhatIf
++     ~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Invoke-BulkOffboarding.ps1], ParameterBindingException
+    + FullyQualifiedErrorId : NamedParameterNotFound,Invoke-BulkOffboarding.ps1
+C:\nmg-identity-automation\Scripts\Invoke-BulkOffboarding.ps1 : A parameter cannot be found that matches parameter name 'WhatIf'.
+At line:4 char:5
++     -WhatIf
++     ~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Invoke-BulkOffboarding.ps1], ParameterBindingException
+    + FullyQualifiedErrorId : NamedParameterNotFound,Invoke-BulkOffboarding.ps1
+
+PS C:\nmg-identity-automation> .\Scripts\Invoke-BulkOffboarding.ps1 `
+    -ApprovedList ".\Evidence\Approved.csv" `
+    -Ticket "NMG-0231" `
+    -WhatIf
+
+>> TerminatingError(Invoke-BulkOffboarding.ps1): "A parameter cannot be found that matches parameter name 'WhatIf'."
+C:\nmg-identity-automation\Scripts\Invoke-BulkOffboarding.ps1 : A parameter cannot be found that matches parameter name 
+'WhatIf'.
+At line:4 char:5
++     -WhatIf
++     ~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Invoke-BulkOffboarding.ps1], ParameterBindingException
+    + FullyQualifiedErrorId : NamedParameterNotFound,Invoke-BulkOffboarding.ps1
+C:\nmg-identity-automation\Scripts\Invoke-BulkOffboarding.ps1 : A parameter cannot be found that matches parameter name 'WhatIf'.
+At line:4 char:5
++     -WhatIf
++     ~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Invoke-BulkOffboarding.ps1], ParameterBindingException
+    + FullyQualifiedErrorId : NamedParameterNotFound,Invoke-BulkOffboarding.ps1
+
+PS C:\nmg-identity-automation> cd C:\Scripts
+PS C:\Scripts> .\Invoke-BulkOffboarding.ps1 `
+    -ApprovedList ".\Evidence\Approved.csv" `
+    -Ticket "NMG-0231" `
+    -WhatIf
+
+PS C:\Scripts> TerminatingError(Import-Csv): "Could not find a part of the path 'C:\Scripts\Evidence\Approved.csv'."
+Import-Csv : Could not find a part of the path 'C:\Scripts\Evidence\Approved.csv'.
+At C:\Scripts\Invoke-BulkOffboarding.ps1:12 char:13
++ $approved = Import-Csv $ApprovedList
++             ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Import-Csv], DirectoryNotFoundException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.ImportCsvCommand
+Import-Csv : Could not find a part of the path 'C:\Scripts\Evidence\Approved.csv'.
+At C:\Scripts\Invoke-BulkOffboarding.ps1:12 char:13
++ $approved = Import-Csv $ApprovedList
++             ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Import-Csv], DirectoryNotFoundException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.ImportCsvCommand
+
+What if: Performing the operation "Start-Transcript" on target "C:\nmg-identity-automation\Logs\BulkRun_2026-09-16_1758.log".
+
+  BULK OFFBOARDING
+  Accounts : 0
+  Ticket   : NMG-0231
+  DRY RUN. Nothing will change.
+
+
+  Dry run finished. Nothing changed, nothing recorded.
+  Remove -WhatIf to run it for real.
+
+**********************
+Windows PowerShell transcript end
+End time: 20260916175839
+**********************
